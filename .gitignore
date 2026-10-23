@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+
+# Local data (game history) - never commit
+data/
+
+# Arena output is regenerated; commit only the final charts in docs/report/
+results/
+
+# Web
+web/node_modules/
+web/dist/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/

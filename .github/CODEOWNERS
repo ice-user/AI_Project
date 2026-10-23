@@ -1,0 +1,21 @@
+# Replace @personN with real GitHub usernames (Person 5 does this on day 1).
+# The owner is auto-requested as reviewer on any PR touching their files.
+
+# Default: integration lead
+*                               @person5
+
+/dnb/engine/                    @person1
+/dnb/bots/                      @person1
+/dnb/bots/montecarlo.py         @person2
+/dnb/arena/                     @person2
+/dnb/difficulty/                @person3
+/dnb/coach/                     @person4
+/dnb/server/                    @person5
+/web/                           @person5
+
+# Contracts: changes here affect everyone
+/dnb/engine/state.py            @person1 @person2 @person3 @person4 @person5
+/dnb/bots/base.py               @person1 @person2 @person3 @person4 @person5
+/dnb/server/schemas.py          @person5 @person3 @person4
+/dnb/server/db.py               @person5 @person3 @person4
+/web/src/api.ts                 @person5 @person3 @person4

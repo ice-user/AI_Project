@@ -1,0 +1,3 @@
+# Normalise line endings so Windows and Mac/Linux teammates don't fight over CRLF.
+* text=auto eol=lf
+*.pdf binary

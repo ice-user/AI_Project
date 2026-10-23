@@ -1,0 +1,82 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2533;
+  --muted: #d6dae3;
+  --dot: #6b7280;
+  --p0: #3aa0db; /* human */
+  --p1: #e04a6a; /* bot */
+  font-family: system-ui, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161c;
+    --fg: #e8eaf0;
+    --muted: #343a46;
+    --dot: #9aa1ae;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 .accent,
+.p1 {
+  color: var(--p1);
+}
+
+.p0 {
+  color: var(--p0);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.status {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.error {
+  color: var(--p1);
+}
+
+.board {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+}
+
+.edge {
+  stroke: var(--muted);
+  stroke-linecap: round;
+}
+
+.edge-hit {
+  stroke: transparent;
+  stroke-width: 22;
+  cursor: pointer;
+}
+
+.edge-hit:hover {
+  stroke: var(--p0);
+  stroke-opacity: 0.35;
+}
+
+.dot {
+  fill: var(--dot);
+}
