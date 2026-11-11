@@ -5,6 +5,10 @@
   --dot: #6b7280;
   --p0: #3aa0db; /* human */
   --p1: #e04a6a; /* bot */
+  --good: #2e9d5b;
+  --okay: #d9962b;
+  --mistake: #d63b5c;
+  --row: #f1f3f7;
   font-family: system-ui, sans-serif;
   color: var(--fg);
   background: var(--bg);
@@ -16,6 +20,7 @@
     --fg: #e8eaf0;
     --muted: #343a46;
     --dot: #9aa1ae;
+    --row: #20242d;
   }
 }
 
@@ -79,4 +84,96 @@ h1 .accent,
 
 .dot {
   fill: var(--dot);
+}
+
+/* Highlights drawn over edges; they never block clicks on the line underneath. */
+.mark {
+  stroke-width: 9;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.mark-hint,
+.mark-best {
+  stroke: var(--good);
+  stroke-dasharray: 4 12;
+}
+
+.mark-hint {
+  stroke-dasharray: 1 10;
+  stroke-width: 10;
+}
+
+.mark-danger {
+  stroke: var(--mistake);
+  stroke-opacity: 0.35;
+}
+
+.mark-good {
+  stroke: var(--good);
+}
+
+.mark-okay {
+  stroke: var(--okay);
+}
+
+.mark-mistake {
+  stroke: var(--mistake);
+}
+
+.legend {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.review ol {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.review .row {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--row);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.review .row.selected {
+  border-color: var(--p0);
+}
+
+.badge {
+  display: inline-block;
+  min-width: 4.5em;
+  padding: 1px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.badge.good {
+  background: var(--good);
+}
+
+.badge.okay {
+  background: var(--okay);
+}
+
+.badge.mistake {
+  background: var(--mistake);
+}
+
+.explanation {
+  margin: 4px 10px 0;
+  font-size: 0.9rem;
 }

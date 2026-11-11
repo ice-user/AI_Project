@@ -9,9 +9,10 @@ interface Props {
   game: Game;
   canMove: boolean;
   onMove: (edge: number) => void;
+  marks?: Map<number, string>; // edge -> highlight kind, styled by .mark-<kind>
 }
 
-export function Board({ game, canMove, onMove }: Props) {
+export function Board({ game, canMove, onMove, marks }: Props) {
   const { rows, cols } = game;
   const drawnBy = new Map(game.moves.map((m) => [m.edge, m.player]));
   const lastEdge = game.moves.at(-1)?.edge;
@@ -58,6 +59,20 @@ export function Board({ game, canMove, onMove }: Props) {
               <line {...line} className="edge-hit" onClick={() => onMove(e)} />
             )}
           </g>
+        );
+      })}
+
+      {[...(marks ?? [])].map(([e, kind]) => {
+        const g = edgeGeom(rows, cols, e);
+        return (
+          <line
+            key={`mark-${e}`}
+            x1={px(g.x1)}
+            y1={px(g.y1)}
+            x2={px(g.x2)}
+            y2={px(g.y2)}
+            className={`mark mark-${kind}`}
+          />
         );
       })}
 

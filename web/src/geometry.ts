@@ -11,6 +11,15 @@ export function numEdges(rows: number, cols: number): number {
   return (rows + 1) * cols + rows * (cols + 1);
 }
 
+/** Box index -> its four edges: top, bottom, left, right. */
+export function boxEdges(rows: number, cols: number, box: number): number[] {
+  const numH = (rows + 1) * cols;
+  const r = Math.floor(box / cols);
+  const c = box % cols;
+  const left = numH + r * (cols + 1) + c;
+  return [r * cols + c, (r + 1) * cols + c, left, left + 1];
+}
+
 /** Edge index -> endpoints in dot coordinates (column, row). */
 export function edgeGeom(rows: number, cols: number, edge: number): EdgeGeom {
   const numH = (rows + 1) * cols;
