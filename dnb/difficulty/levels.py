@@ -16,4 +16,12 @@ LEVELS: dict[int, dict[str, str]] = {
 
 
 def bot_spec_for_level(level: int) -> str:
+    """Return the bot specification for a difficulty level."""
+
+    if isinstance(level, bool) or not isinstance(level, int):
+        raise ValueError("Difficulty level must be an integer.")
+
+    if level not in LEVELS:
+        raise ValueError("Difficulty level must be between 1 and 5.")
+
     return LEVELS[level]["bot"]
