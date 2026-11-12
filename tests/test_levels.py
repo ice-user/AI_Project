@@ -1,8 +1,7 @@
-
 import pytest
 
-from dnb.difficulty.levels import LEVELS, bot_spec_for_level
 from dnb.bots.registry import make_bot
+from dnb.difficulty.levels import LEVELS, bot_spec_for_level
 
 
 def test_five_difficulty_levels_exist():
