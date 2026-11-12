@@ -24,13 +24,15 @@ Implementation and integration notes: [Person 1 handoff](PERSON1_HANDOFF.md).
 Recorded measurements: [Person 1 results](report/PERSON1_RESULTS.md).
 
 ## Person 2: Monte Carlo and arena
-- [ ] Monte Carlo bot (`dnb/bots/montecarlo.py`) with random playouts
-- [ ] Greedy playouts (`greedy_playouts=true`)
-- [ ] `sims` strength setting
-- [ ] Arena: every bot vs every bot, ~100 games, swap who starts, CSV output
-- [ ] Charts (win rate, think time) with matplotlib
-- [ ] Done: MC beats greedy; arena table compares all bots
+- [x] Monte Carlo bot (`dnb/bots/montecarlo.py`) with random playouts
+- [x] Greedy playouts (`greedy_playouts=true`)
+- [x] `sims` strength setting
+- [x] Arena: every bot vs every bot, ~100 games, swap who starts, CSV output
+- [x] Charts (win rate, think time) with matplotlib
+- [x] Done: MC beats greedy (96% with `sims=500,greedy_playouts=true` on 3x3); arena table compares all bots
 - [ ] Stretch: full MCTS (UCT) as a separate bot
+
+Recorded measurements and notes for teammates: [Person 2 results](report/PERSON2_RESULTS.md).
 
 ## Person 3: Adaptive difficulty
 - [ ] Elo (`dnb/difficulty/elo.py`) with tests

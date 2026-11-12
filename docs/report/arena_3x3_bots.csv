@@ -1,0 +1,8 @@
+bot,rows,cols,games,wins,losses,draws,score,ms_per_move
+random,3,3,600,13,587,0,0.0217,0.005
+greedy,3,3,600,291,309,0,0.4850,0.052
+minimax:depth=2,3,3,600,262,338,0,0.4367,1.400
+minimax:depth=4,3,3,600,388,212,0,0.6467,37.171
+montecarlo:sims=500,3,3,600,92,508,0,0.1533,3.022
+"montecarlo:sims=500,greedy_playouts=true",3,3,600,523,77,0,0.8717,17.165
+"montecarlo:sims=2000,greedy_playouts=true",3,3,600,531,69,0,0.8850,72.008
