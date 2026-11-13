@@ -1,4 +1,3 @@
-
 import pytest
 
 from dnb.difficulty.adjuster import next_level
