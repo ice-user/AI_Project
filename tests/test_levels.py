@@ -35,9 +35,7 @@ def test_hard_uses_deeper_minimax():
 
 
 def test_expert_uses_monte_carlo():
-    assert bot_spec_for_level(5) == (
-        "montecarlo:sims=2000,greedy_playouts=true"
-    )
+    assert bot_spec_for_level(5) == ("montecarlo:sims=2000,greedy_playouts=true")
 
 
 @pytest.mark.parametrize("level", [0, 6, -1])

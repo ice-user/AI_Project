@@ -1,4 +1,3 @@
-
 import pytest
 
 from dnb.difficulty.elo import (
