@@ -1,4 +1,3 @@
-
 import json
 
 from dnb.difficulty.stats import compute_stats

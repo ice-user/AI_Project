@@ -1,4 +1,3 @@
-
 """Elo rating for players (and, optionally, for each bot level)."""
 
 from __future__ import annotations
@@ -22,7 +21,7 @@ def expected_score(rating_a: float, rating_b: float) -> float:
         power = 10 ** (-difference)
         return power / (1 + power)
 
-    power = 10 ** difference
+    power = 10**difference
     return 1 / (1 + power)
 
 

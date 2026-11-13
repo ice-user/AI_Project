@@ -1,4 +1,3 @@
-
 """Player stats for the profile screen, computed from saved games."""
 
 from __future__ import annotations
@@ -39,8 +38,7 @@ def _count_boxes_given_away(row) -> int:
 
         # Only count moves after which the bot gets the turn.
         if player == human_player and state.current_player == bot_player:
-            if any(state.sides(box) == 3
-                   for box in range(state.layout.num_boxes)):
+            if any(state.sides(box) == 3 for box in range(state.layout.num_boxes)):
                 count += 1
 
     return count
@@ -94,9 +92,7 @@ def compute_stats(player_id: str) -> PlayerStats:
     return PlayerStats(
         games_played=games_played,
         win_rate=wins / games_played,
-        boxes_given_away_per_game=(
-            total_boxes_given_away / games_played
-        ),
+        boxes_given_away_per_game=(total_boxes_given_away / games_played),
         rating=rating,
         level=latest_level,
     )
