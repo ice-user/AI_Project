@@ -34,6 +34,8 @@ export function Play({ playerId, levels, bots, autoLevel, onGameOver, onReview }
   const [humanFirst, setHumanFirst] = useStored("humanFirst", true);
   const [showDanger, setShowDanger] = useStored("showDanger", true);
 
+  const customBotName = customBot.split(":", 1)[0];
+
   const [game, setGame] = useState<Game | null>(null);
   const [shown, setShown] = useState(0); // how many of game.moves are on the board so far
   const [pending, setPending] = useState<number | null>(null); // your move, before the server answers
@@ -202,26 +204,44 @@ export function Play({ playerId, levels, bots, autoLevel, onGameOver, onReview }
           <details open={choice === "custom"}>
             <summary>Pick a bot yourself</summary>
             <label className="row">
+              <span>Custom opponent</span>
               <input
                 type="radio"
                 checked={choice === "custom"}
                 onChange={() => setChoice("custom")}
               />
+            </label>
+            <label className="row">
+              Bot
+              <select
+                aria-label="Choose bot"
+                value={bots.includes(customBotName) ? customBotName : ""}
+                onChange={(e) => {
+                  const presets: Record<string, string> = {
+                    minimax: "minimax:depth=3",
+                    montecarlo: "montecarlo:sims=200,greedy_playouts=true",
+                  };
+                  setCustomBot(presets[e.target.value] ?? e.target.value);
+                  setChoice("custom");
+                }}
+              >
+                <option value="" disabled>Choose a bot</option>
+                {bots.map((b) => (
+                  <option key={b} value={b}>{b}</option>
+                ))}
+              </select>
+            </label>
+            <label className="row">
+              Bot settings
               <input
-                list="bot-names"
                 value={customBot}
                 onChange={(e) => {
                   setCustomBot(e.target.value);
                   setChoice("custom");
                 }}
-                placeholder="minimax:depth=3"
-                aria-label="Bot spec"
+                aria-label="Bot spec and settings"
+                title="You can adjust settings, for example minimax:depth=4"
               />
-              <datalist id="bot-names">
-                {bots.map((b) => (
-                  <option key={b} value={b} />
-                ))}
-              </datalist>
             </label>
           </details>
         </fieldset>
