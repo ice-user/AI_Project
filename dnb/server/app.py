@@ -96,8 +96,11 @@ def _out(s: Session) -> GameOut:
 
 
 def _play(s: Session, edge: int) -> None:
+    # Apply first: if the engine rejects the move, nothing about the game may change, or the
+    # saved move list can no longer be replayed for the review and player stats.
+    state = s.state.apply(edge)
     s.moves.append((s.state.current_player, edge))
-    s.state = s.state.apply(edge)
+    s.state = state
 
 
 @cache
